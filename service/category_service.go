@@ -21,10 +21,12 @@ func (service *CategoryService) CreateCategory(ctx context.Context, req *categor
 
 func (service *CategoryService) GetCategories(ctx context.Context, _ *categoryPb.Empty) (*categoryPb.Categories, error) {
 	categories := &categoryPb.Categories{}
-	categories.Data = append(categories.Data, &categoryPb.Category{
+	category := &categoryPb.Category{
 		Id:   5,
 		Name: "Category 8",
-	})
+	}
+
+	categories.Data = append(categories.Data, category)
 
 	return categories, nil
 }
